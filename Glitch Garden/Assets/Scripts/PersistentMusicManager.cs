@@ -41,4 +41,8 @@ public class PersistentMusicManager : MonoBehaviour
             }
         }
     }
+    public void ChangeVolume(float volume)
+    {
+        audioSource.volume = volume;
+    }
 }

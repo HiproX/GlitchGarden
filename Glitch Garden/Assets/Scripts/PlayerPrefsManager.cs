@@ -45,7 +45,7 @@ public class PlayerPrefsManager : MonoBehaviour
     }
     public static void SetDifficulty(float difficulty)
     {
-        if (difficulty >= 0f && difficulty <= 1.0f)
+        if (difficulty >= 1f && difficulty <= 3.0f)
         {
             PlayerPrefs.SetFloat(DIFFICULTY_KEY, difficulty);
         }
