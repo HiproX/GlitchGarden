@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1707350843888874179}
   - component: {fileID: 1131993558172470426}
   - component: {fileID: 5236888484699142177}
+  - component: {fileID: 7748232978833530764}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -152,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae2aa60db1811d43b961d0a87aa59de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.7
 --- !u!61 &5236888484699142177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,3 +179,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37, y: 0.61}
   m_EdgeRadius: 0
+--- !u!114 &7748232978833530764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707350843888874178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cfd89769cd86eb4f8aaabd352c4878c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

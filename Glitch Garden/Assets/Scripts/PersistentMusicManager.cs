@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,7 +32,7 @@ public class PersistentMusicManager : MonoBehaviour
         if (sceneId < levelMusicChangeArray.Length)
         {
             var thisSceneMusic = levelMusicChangeArray[sceneId];
-            Debug.Log($"Âîñïðîèçâåäåíèå çâóêà: {thisSceneMusic}");
+            Debug.Log($"Ð’Ð¾ÑÐ¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð·Ð²ÑƒÐºÐ°: {thisSceneMusic}");
             if (thisSceneMusic)
             {
                 audioSource.clip = thisSceneMusic;

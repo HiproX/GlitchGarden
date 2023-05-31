@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
         if (autoLoadNextLevelAfter <= 0)
         {
-            Debug.Log("Àâòîçàãðóçêà óðîâíåé îòêëþ÷åíà, èñïîëüçóéòå ïîëîæèòåëüíîå ÷èñëî");
+            Debug.Log("ÐÐ²Ñ‚Ð¾Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° ÑƒÑ€Ð¾Ð²Ð½ÐµÐ¹ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°, Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐ¹Ñ‚Ðµ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾");
         }
         else
         {
@@ -21,12 +21,12 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadLevel(string name)
     {
-        Debug.Log($"Çàïðîøåíà çàãðóçêà óðîâíÿ äëÿ {name}");
+        Debug.Log($"Ð—Ð°Ð¿Ñ€Ð¾ÑˆÐµÐ½Ð° Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° ÑƒÑ€Ð¾Ð²Ð½Ñ Ð´Ð»Ñ {name}");
         SceneManager.LoadScene(name);
     }
     public void QuitRequest()
     {
-        Debug.Log($"ß õî÷ó âûéòè");
+        Debug.Log($"Ð¯ Ñ…Ð¾Ñ‡Ñƒ Ð²Ñ‹Ð¹Ñ‚Ð¸");
         Application.Quit();
     }
     public void BackToMenu()

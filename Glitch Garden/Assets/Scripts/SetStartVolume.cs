@@ -1,4 +1,4 @@
-using System.Collections;
+ο»Ώusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +11,12 @@ public class SetStartVolume : MonoBehaviour
         musicManager = GameObject.FindObjectOfType<PersistentMusicManager>();
         if (musicManager)
         {
-            Debug.Log($"[PersistentMusicManager:{musicManager.GetInstanceID()}] νΰιδεν!");
+            Debug.Log($"[PersistentMusicManager:{musicManager.GetInstanceID()}] Π½Π°ΠΉΠ΄ΠµΠ½!");
             musicManager.ChangeVolume(PlayerPrefsManager.GetMasterVolume());
         }
         else
         {
-            Debug.LogError("PersistentMusicManager β ςεκσωει ρφενε νε νΰιδεν");
+            Debug.LogError("PersistentMusicManager Π² Ρ‚ΠµΠΊΡƒΡ‰ΠµΠΉ ΡΡ†ΠµΠ½Πµ Π½Πµ Π½Π°ΠΉΠ΄ΠµΠ½");
         }
 
     }

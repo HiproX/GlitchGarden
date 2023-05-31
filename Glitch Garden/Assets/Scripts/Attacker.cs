@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SearchService;
 
 public class Attacker : MonoBehaviour
 {
-    [Range(-1f, 1.5f)]
-    public float walkSpeed;
+    private float currentSpeed;
+    private GameObject currentTarget;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,25 @@ public class Attacker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * walkSpeed * Time.deltaTime);
+        transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        currentSpeed = speed;
+    }
+    public void StrikeCurrentTarget(float damage)
+    {
+        Debug.Log(name + " нанёс " + damage + " едениц урона");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(name + " ������ ��������");
+        Debug.Log(name + " тригер сработал");
+    }
+
+    public void Attack(GameObject obj)
+    {
+        currentTarget = obj;
     }
 }

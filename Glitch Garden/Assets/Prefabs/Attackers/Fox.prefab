@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1132734310, guid: d30c1b6a45aa8ab439aa4456a5e17dba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 6559172892503584311}
   - component: {fileID: 4222390538955818508}
   - component: {fileID: 260204572335418402}
+  - component: {fileID: 981712103786144292}
   m_Layer: 0
   m_Name: Fox
   m_TagString: Untagged
@@ -152,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae2aa60db1811d43b961d0a87aa59de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.33
 --- !u!61 &260204572335418402
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -179,3 +179,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.73, y: 0.31}
   m_EdgeRadius: 0
+--- !u!114 &981712103786144292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6559172892503584309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea4ffeddb4f61a439add11a93feb5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
