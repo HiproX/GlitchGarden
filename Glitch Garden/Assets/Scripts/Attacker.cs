@@ -7,14 +7,15 @@ public class Attacker : MonoBehaviour
 {
     private float currentSpeed;
     private GameObject currentTarget;
-    // Start is called before the first frame update
+    private Animator animator;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
         var myRigidbody = gameObject.AddComponent<Rigidbody2D>();
         myRigidbody.isKinematic = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.left * currentSpeed * Time.deltaTime);
@@ -24,9 +25,28 @@ public class Attacker : MonoBehaviour
     {
         currentSpeed = speed;
     }
+    
     public void StrikeCurrentTarget(float damage)
     {
-        Debug.Log(name + " нанёс " + damage + " едениц урона");
+        if (currentTarget)
+        {
+            Debug.Log(name + " нанёс " + damage + " едениц урона " + currentTarget.name);
+            var health = currentTarget.GetComponent<Health>();
+            if (!health)
+            {
+                Debug.LogError("Компонент Health отсуствует у объекта " + currentTarget.name);
+                return;
+            }
+            health.DealDamage(damage);
+            if (!health.IsAlive)
+            {
+                animator.SetBool("isAttacking", false);
+            }
+        }
+        else
+        {
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
