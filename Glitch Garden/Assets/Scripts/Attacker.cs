@@ -49,11 +49,6 @@ public class Attacker : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log(name + " тригер сработал");
-    }
-
     public void Attack(GameObject obj)
     {
         currentTarget = obj;
