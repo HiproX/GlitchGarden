@@ -5,7 +5,7 @@ using UnityEngine;
 public class SetStartVolume : MonoBehaviour
 {
     private PersistentMusicManager musicManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         musicManager = GameObject.FindObjectOfType<PersistentMusicManager>();

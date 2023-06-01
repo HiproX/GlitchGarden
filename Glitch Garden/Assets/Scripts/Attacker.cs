@@ -5,6 +5,8 @@ using UnityEngine.SearchService;
 
 public class Attacker : MonoBehaviour
 {
+    [Tooltip("Среднее количество секунд между появлениями врагов")]
+    public float seenEverySecond;
     private float currentSpeed;
     private GameObject currentTarget;
     private Animator animator;
@@ -45,7 +47,7 @@ public class Attacker : MonoBehaviour
         }
         else
         {
-
+            animator.SetBool("isAttacking", false);
         }
     }
 

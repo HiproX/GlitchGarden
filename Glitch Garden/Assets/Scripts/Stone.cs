@@ -1,8 +1,8 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    // Используется как тэг
+    // РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РєР°Рє С‚СЌРі
 }

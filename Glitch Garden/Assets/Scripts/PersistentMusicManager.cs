@@ -12,20 +12,18 @@ public class PersistentMusicManager : MonoBehaviour
         GameObject.DontDestroyOnLoad(gameObject);
         Debug.Log($"[{gameObject.name}:{gameObject.GetInstanceID()}] Don't destroy on load");
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         audioSource= GetComponent<AudioSource>();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    // Update is called once per frame
-    void Update()
-    {
-    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         int sceneId = scene.buildIndex;
@@ -41,6 +39,7 @@ public class PersistentMusicManager : MonoBehaviour
             }
         }
     }
+
     public void ChangeVolume(float volume)
     {
         audioSource.volume = volume;

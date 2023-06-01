@@ -10,7 +10,7 @@ public class OptionsController : MonoBehaviour
     public Slider difficultySlider;
     public LevelManager levelManager;
     private PersistentMusicManager musicManager;
-    // Start is called before the first frame update
+
     void Start()
     {
         musicManager = GameObject.FindObjectOfType<PersistentMusicManager>();
@@ -27,11 +27,11 @@ public class OptionsController : MonoBehaviour
         difficultySlider.value = PlayerPrefsManager.GetDifficulty();
     }
 
-    // Update is called once per frame
     void Update()
     {
         musicManager.ChangeVolume(volumeSlider.value);
     }
+
     public void SaveAndExit()
     {
         PlayerPrefsManager.SetMasterVolume(volumeSlider.value);
@@ -39,6 +39,7 @@ public class OptionsController : MonoBehaviour
 
         levelManager.LoadLevel("01a Start");
     }
+
     public void SetDefautls()
     {
         volumeSlider.value = 0.8f;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,6 +8,7 @@ public class PlayerPrefsManager : MonoBehaviour
     const string MASTER_VOLUME_KEY = "master_volume";
     const string DIFFICULTY_KEY = "difficulty";
     const string LEVEL_KEY = "level_unlocked_";
+
     public static void SetMasterVolume(float volume)
     {
         if (volume >= 0f && volume <= 1.0f)
@@ -16,13 +17,15 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Ãðîìêîñòü âíå äèàïàçîíà");
+            Debug.LogError("Ð“Ñ€Ð¾Ð¼ÐºÐ¾ÑÑ‚ÑŒ Ð²Ð½Ðµ Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°");
         }
     }
+
     public static float GetMasterVolume()
     {
         return PlayerPrefs.GetFloat(MASTER_VOLUME_KEY);
     }
+
     public static void UnlockLevel(int level)
     {
         if (level >= 0 && level <= SceneManager.sceneCount - 1)
@@ -31,18 +34,20 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Ïîïûòêà ðàçáëîêèðîâêè íåêîðåêòíîãî óðîâíÿ");
+            Debug.LogError("ÐŸÐ¾Ð¿Ñ‹Ñ‚ÐºÐ° Ñ€Ð°Ð·Ð±Ð»Ð¾ÐºÐ¸Ñ€Ð¾Ð²ÐºÐ¸ Ð½ÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ð¾Ð³Ð¾ ÑƒÑ€Ð¾Ð²Ð½Ñ");
         }
     }
+
     public static bool IsLevelUnlocked(int level)
     {
         if (level < 0 || level > SceneManager.sceneCount - 1)
         {
-            Debug.LogError("Ïîïûòêà çàïðîñèòü íåêîðåêòíûé óðîâåíü");
+            Debug.LogError("ÐŸÐ¾Ð¿Ñ‹Ñ‚ÐºÐ° Ð·Ð°Ð¿Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð½ÐµÐºÐ¾Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ ÑƒÑ€Ð¾Ð²ÐµÐ½ÑŒ");
         }
         return level >= 0 && level <= SceneManager.sceneCount - 1 &&
             PlayerPrefs.GetInt($"{LEVEL_KEY}{level}") == 1;
     }
+
     public static void SetDifficulty(float difficulty)
     {
         if (difficulty >= 1f && difficulty <= 3.0f)
@@ -51,9 +56,10 @@ public class PlayerPrefsManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Ñëîæíîñòü âíå äèàïàçàíî");
+            Debug.LogError("Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ Ð²Ð½Ðµ Ð´Ð¸Ð°Ð¿Ð°Ð·Ð°Ð½Ð¾");
         }
     }
+
     public static float GetDifficulty()
     {
         return PlayerPrefs.GetFloat(DIFFICULTY_KEY);
