@@ -6,7 +6,11 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] attackerPrefabArray;
 
-    void Update()
+    private void Start()
+    {
+    }
+
+    private void Update()
     {
         foreach (var attacker in attackerPrefabArray)
         {
@@ -32,12 +36,17 @@ public class Spawner : MonoBehaviour
         }
 
         float threshold = spawnPerSeconds * Time.deltaTime / 5;
-        
-        if (Random.value < threshold)
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.2f);
+        foreach (Collider2D collider in colliders)
         {
-            return true;
+            if (collider.gameObject.GetComponent<Attacker>())
+            {
+                return false;
+            }
         }
-        return false;
+
+        return Random.value < threshold;
     }
     
     private void Spawn(GameObject attacker)

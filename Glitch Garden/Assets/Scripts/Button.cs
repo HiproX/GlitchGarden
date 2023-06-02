@@ -5,6 +5,7 @@ using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Button : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class Button : MonoBehaviour
     private SpriteRenderer sprite;
     private Color hideColor;
     private Button[] buttonArray;
+    private Text costLabel;
 
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
         hideColor = sprite.color;
         buttonArray = GameObject.FindObjectsOfType<Button>();
+        costLabel = GetComponentInChildren<Text>();
+        costLabel.text = defenderPrefab.GetComponent<Defender>().scoreCost.ToString();
     }
 
     void Update()

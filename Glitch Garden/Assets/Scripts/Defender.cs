@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Defender : MonoBehaviour
 {
+    public int scoreCost = 1;
     private ScoreDisplay score;
 
     private void Start()

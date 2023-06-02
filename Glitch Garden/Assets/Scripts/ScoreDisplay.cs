@@ -7,10 +7,16 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ScoreDisplay : MonoBehaviour
 {
+    public enum Status { Success, Failure }
+    public int count = 5;
     private Text scoreLabel;
-    public int count;
     void Start()
     {
+        if (count == 0)
+        {
+            Debug.LogWarning("Когда начальный счет равен нулю, игрок не сможет спавнить защитников");
+        }
+
         scoreLabel = GetComponent<Text>();
         scoreLabel.text = count.ToString();
     }
@@ -21,10 +27,15 @@ public class ScoreDisplay : MonoBehaviour
         UpdateDisplay();
     }
 
-    public void UseStars(int amount)
+    public Status UseStars(int amount)
     {
-        count -= amount;
-        UpdateDisplay();
+        if (count >= amount)
+        {
+            count -= amount;
+            UpdateDisplay();
+            return Status.Success;
+        }
+        return Status.Failure;
     }
 
     private void UpdateDisplay()

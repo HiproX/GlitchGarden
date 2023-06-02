@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DefenderSpawner : MonoBehaviour
 {
     public Camera myCamera;
     private GameObject defenderParent;
+    private ScoreDisplay scoreDisplay;
 
     void Start()
     {
+        scoreDisplay = GameObject.FindObjectOfType<ScoreDisplay>();
         defenderParent = GameObject.Find("Defenders");
 
         if (!defenderParent)
@@ -28,13 +31,28 @@ public class DefenderSpawner : MonoBehaviour
         var rawWorldPos = CalculateWorldPointOfMouseClick();
         var roundedPos = SnapToGrid(rawWorldPos);
 
-        Debug.Log($"X:{roundedPos.x} Y:{roundedPos.y}");
-        
-        if (Button.SelectedDefender)
+        Debug.Log($"Выбраны координаты ({roundedPos.x}, {roundedPos.y})");
+
+        var selectedDefender = Button.SelectedDefender;
+        if (selectedDefender)
         {
-            var defender = Instantiate(Button.SelectedDefender, roundedPos, Quaternion.identity);
-            defender.transform.SetParent(defenderParent.transform);
+            var cost = selectedDefender.GetComponent<Defender>().scoreCost;
+
+            if (scoreDisplay.UseStars(cost) == ScoreDisplay.Status.Success)
+            {
+                SpawnDefender(selectedDefender, roundedPos);
+            }
+            else
+            {
+                Debug.Log("Недостаточно очков для размещения защитника");
+            }
         }
+    }
+
+    private void SpawnDefender(GameObject defender, Vector2 position)
+    {
+        var entity = Instantiate(defender, position, Quaternion.identity);
+        entity.transform.SetParent(defenderParent.transform);
     }
 
     private Vector2 SnapToGrid(Vector2 rawWorldPos)
