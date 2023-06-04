@@ -16,6 +16,7 @@ public class PersistentMusicManager : MonoBehaviour
     void Start()
     {
         audioSource= GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterVolume();
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
